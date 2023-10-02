@@ -7,11 +7,14 @@ import (
 )
 
 func main() {
+	// Initialize Rooms
+	server.AllRooms.Init()
+
 	http.HandleFunc("/create", server.CreateRoomRequestHandler)
 	http.HandleFunc("/join", server.JoinRoomRequestHandler)
 
-	log.Println("Starting server in Port: 8000")
-	err := http.ListenAndServe(":8000", nil)
+	log.Println("Starting server in Port: 5003")
+	err := http.ListenAndServe(":5003", nil)
 
 	if err != nil {
 		log.Fatal(err)
