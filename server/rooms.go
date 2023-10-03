@@ -1,6 +1,7 @@
 package server
 
 import (
+	"log"
 	"sync"
 
 	"github.com/google/uuid"
@@ -33,6 +34,7 @@ func (r *RoomMap) CreateRoom() string {
 	defer r.Mutex.Unlock()
 	roomId := uuid.New().String()
 	r.Map[roomId] = []Participant{}
+	log.Print("ROOM CREATED", roomId)
 	return roomId
 }
 
